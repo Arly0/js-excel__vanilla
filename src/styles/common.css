@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+body,
+html {
+  overflow: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.add__table-form {
+  display: flex;
+  flex-direction: column;
+}

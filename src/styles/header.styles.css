@@ -1,0 +1,11 @@
+.header-wrapper {
+  background-color: #388e3c;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  color: #fff;
+}
