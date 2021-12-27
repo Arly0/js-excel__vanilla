@@ -1,3 +1,6 @@
+import {
+  getLastId
+} from './routeService.js'
 /**
  * 
  * @param {String} tableName name of table
@@ -11,6 +14,7 @@
   const dateCreation = new Date();
   return {
     // TODO: maybe add ID
+    id: getLastId(),
     name: tableName,
     date: dateCreation
   }

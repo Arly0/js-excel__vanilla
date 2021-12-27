@@ -1,11 +1,17 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .main-inner {
-  background-color: #ccc;
+  background-color: #eee;
 }
 
 .new-table-input {
   min-height: 40px;
   border-radius: 4px;
   font-family: Georgia, "Times New Roman", Times, serif;
+  width: 300px;
+  padding: 8px;
 }
 
 .create-table {
@@ -22,10 +28,15 @@
   color: #000;
   font-family: Georgia, "Times New Roman", Times, serif;
   cursor: pointer;
+  -webkit-transition: 0.7s border-color ease;
   transition: 0.7s border-color ease;
+  width: 150px;
+  margin-top: 10px;
 }
+
 .add-table:hover {
-  border-color: rgb(121, 121, 121);
+  border-color: #797979;
+  -webkit-transition: 0.7s border-color ease;
   transition: 0.7s border-color ease;
 }
 
@@ -33,3 +44,16 @@
   padding: 6px;
   cursor: pointer;
 }
+
+hr {
+  height: 1px;
+  background-color: gray;
+}
+
+.close__btn_img {
+  width: 32px;
+  height: auto;
+}
+
+/* Table styles */
+/*# sourceMappingURL=main.css.map */

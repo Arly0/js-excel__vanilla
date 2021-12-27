@@ -14,7 +14,7 @@
     <div class="header-wrapper">
       <div class="container">
         <header class="header">
-          <div class="app-name">Excel Dashboard</div>
+          <h1 class="app-name">Excel Dashboard</h1>
         </header>
       </div>
     </div>
@@ -24,17 +24,19 @@
           <div class="create-table">
             <input
               class="new-table-input"
-              placeholder="Enter new table name"
+              placeholder="Table name"
               required
             />
-            <button class="add-table">Create new table</button>
+            <br>
+            <button class="add-table">Create</button>
           </div>
+          <hr>
           <div class="tables-list"></div>
         </div>
       </div>
     </main>
 
-    <script src="./src/scripts/init.js" type="module"></script>
-    <script src="./src/scripts/home.js" type="module"></script>
+    <script src="./src/scripts/init.js" type="module" crossorigin="anonymous"></script>
+    <script src="./src/scripts/home.js" type="module" crossorigin="anonymous"></script>
   </body>
 </html>

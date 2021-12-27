@@ -33,7 +33,8 @@ const createTableItem = (tableData) => {
 const createCloseButton = () => {
   const button = document.createElement("button");
   button.classList.add("close-button");
-  button.textContent = "X";
+  // button.textContent = "X";
+  button.innerHTML = "<img src='./close.png' class='close__btn_img' />";
 
   button.addEventListener("click", (Event) => {
     const elementToRemove = Event.target.closest(".table-list-item");
@@ -53,7 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
     return; // end event, localstorage is empty
   }
   while (i--) {
-    tableList.push(JSON.parse(localStorage.getItem(keys[i])));
+    if (keys[i].includes('table-')) {
+      tableList.push(JSON.parse(localStorage.getItem(keys[i])));
+    }
   }
 
   if (tableList.length > 0) {
