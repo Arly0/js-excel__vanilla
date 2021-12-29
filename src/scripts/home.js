@@ -13,11 +13,14 @@ const createTableItem = (tableData) => {
   const item = document.createElement("div");
   const linkToTable = document.createElement("a");
   const dateCreation = new Date(tableData.date);
+  item.setAttribute("data-id", tableData.id);
+  item.setAttribute("data-name", tableData.name);
   linkToTable.href = "table.html";
+  linkToTable.setAttribute("data-id", tableData.id)
   linkToTable.classList.add("link-to-table");
   linkToTable.innerHTML = `
-      <div class="table-name">${tableData.name}</div>
-      <div class="table-date-creation">
+      <div data-id="${tableData.id}" class="table-name">${tableData.name}</div>
+      <div data-id="${tableData.id}" class="table-date-creation">
         ${dateCreation.toDateString()}
         ${dateCreation.getHours()}:
         ${dateCreation.getMinutes()}:
@@ -34,12 +37,13 @@ const createCloseButton = () => {
   const button = document.createElement("button");
   button.classList.add("close-button");
   // button.textContent = "X";
-  button.innerHTML = "<img src='./close.png' class='close__btn_img' />";
+  button.innerHTML = "<img src='./src/img/close.png' class='close__btn_img' />";
 
   button.addEventListener("click", (Event) => {
     const elementToRemove = Event.target.closest(".table-list-item");
-    localStorage.removeItem(`table-${elementToRemove.querySelector(".table-name").textContent}`);
-    console.log(`table-${elementToRemove.querySelector(".table-name").textContent}`);
+    const idOfTable = elementToRemove.getAttribute('data-id');
+    localStorage.removeItem(`[${idOfTable}]table-${elementToRemove.querySelector(".table-name").textContent}`);
+    console.log(`[${idOfTable}]table-${elementToRemove.querySelector(".table-name").textContent}`);
     Event.target.closest(".table-list-item").remove();
   });
 

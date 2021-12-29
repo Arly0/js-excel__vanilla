@@ -56,4 +56,42 @@ hr {
 }
 
 /* Table styles */
+.table__container {
+  background: #eee;
+  padding: 20px;
+}
+
+.fileinfo, .textinfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.fileinfo__name {
+  padding: 5px 10px;
+  border: 1px solid gray;
+  font-size: 16px;
+  width: 200px;
+}
+
+.fileinfo__smallbtn, .textinfo__smallbtn {
+  border: 1px solid gray;
+  padding: 0px 8px;
+  cursor: pointer;
+}
+
+.fileinfo__smallbtn img, .textinfo__smallbtn img {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+
+.textinfo__smallbtn {
+  padding: 5px 8px;
+}
 /*# sourceMappingURL=main.css.map */

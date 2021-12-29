@@ -28,7 +28,7 @@ import {
 export const saveTableToLocalStorage = (tableData) => {
   // name, date create or update, first value(?)
   try {
-    localStorage.setItem(`table-${tableData.name}`, JSON.stringify(tableData));
+    localStorage.setItem(`[${tableData.id}]table-${tableData.name}`, JSON.stringify(tableData));
     return true
   } catch (error) {
     console.log(error)
