@@ -1,8 +1,8 @@
 import { setLastTable } from './services/routeService.js';
 // catch event redirect on another page
-const element = document.querySelector('.tables-list');
+const mainTableListElement = document.querySelector('.tables-list');
 
-element.addEventListener('click', function(event) {
+mainTableListElement.addEventListener('click', function(event) {
   // event.preventDefault();
   if (event.target.getAttribute('data-id')) {
     // set this id to ls
@@ -17,3 +17,16 @@ element.addEventListener('click', function(event) {
     }
   }
 });
+
+const tableCell = document.querySelector('.table');
+if (tableCell) {
+  tableCell.addEventListener('click', function (event) {
+    const cells = document.getElementsByClassName('cell');
+    for (const cell of cells) {
+      cell.classList.remove('active');
+    }
+    const targetValue = event.target.innerText;
+    document.querySelector('.textedfit__field').value = targetValue;
+    event.target.classList.add('active');
+  });
+}

@@ -18,7 +18,7 @@
         </header>
       </div>
     </div>
-    <main id="table" class="table">
+    <main>
       <div class="tables-list"></div>
       <div class="table__container">
         <div class="fileinfo">
@@ -26,28 +26,60 @@
           disabled
           placeholder="File name"
           >
-          <button class="fileinfo__smallbtn fileinfo__download" type="button">
+          <button onclick="saveTable()" class="fileinfo__smallbtn fileinfo__download" type="button">
             <img src="./src/img/download.png" alt="Download table">
           </button>
-          <button class="fileinfo__smallbtn fileinfo__clear" type="button">
+          <button class="fileinfo__smallbtn fileinfo__clear" onclick="clearTable()" type="button">
             <img src="./src/img/clear.svg" alt="Clear table">
           </button>
         </div>
         <hr>
         <div class="textinfo">
-          <button class="textinfo__smallbtn " type="button">
+          <button class="textinfo__smallbtn" onclick="setLeftAlign()" type="button">
             <img src="./src/img/align-left.png" alt="Align left">
           </button>
-          <button class="textinfo__smallbtn " type="button">
+          <button class="textinfo__smallbtn" onclick="setCenterAlign()" type="button">
             <img src="./src/img/align-center.png" alt="Align center">
           </button>
-          <button class="textinfo__smallbtn " type="button">
+          <button class="textinfo__smallbtn" onclick="setRightAlign()" type="button">
             <img src="./src/img/align-right.png" alt="Align right">
           </button>
+
+          <button class="textinfo__smallbtn" onclick="setBold()" type="button">
+            <img src="./src/img/bold.png" alt="Bold">
+          </button>
+          <button class="textinfo__smallbtn" onclick="setItalic()" type="button">
+            <img src="./src/img/italic.png" alt="Italic">
+          </button>
+          <button class="textinfo__smallbtn" type="button">
+            <!-- <img src="./src/img/italic.png" alt="Italic"> -->
+          </button>
+        </div>
+
+        <hr>
+
+        <div class="textedfit">
+          <button type="button" onclick="saveLine()" class="textedfit__smallbtn">
+            <img src="./src/img/save.png" alt="Save line">
+          </button>
+          <input 
+            type="text"
+            class="textedfit__field" name="text_edit"
+            placeholder="Select some box"
+          >
+        </div>
+
+        <hr>
+
+        <div class="table__container">
+          <div id="table" class="table">
+            
+          </div>
         </div>
       </div>
     </main>
 
     <script src="./src/scripts/table.js" type="module"></script>
+    <script src="./src/scripts/events.js" type="module"></script>
   </body>
 </html>

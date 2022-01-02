@@ -1,6 +1,7 @@
+import { tableSize } from '../init.js';
 import {
   getLastId
-} from './routeService.js'
+} from './routeService.js';
 /**
  * 
  * @param {String} tableName name of table
@@ -12,11 +13,16 @@ import {
     return false;
   }
   const dateCreation = new Date();
+  let data = '';
+  for(let i=0;i<(tableSize*tableSize)-1;i++) {
+    data += ',';
+  }
   return {
     // TODO: maybe add ID
     id: getLastId(),
     name: tableName,
-    date: dateCreation
+    date: dateCreation,
+    data: data
   }
 }
 
@@ -35,3 +41,28 @@ export const saveTableToLocalStorage = (tableData) => {
   }
   return false
 };
+
+/**
+ * @param cell Int
+ * @param value String
+ * @returns Boolean
+ */
+export const addDataToTable = (cell, value) => {
+  // try to find this cell on obj
+  return true;
+}
+
+export const getLocalStorageTable = (id) => {
+  let keys = Object.keys(localStorage),
+  i = keys.length, itemList = [], item = null;
+  if (i == 0) {
+    alert('You dont set any table');
+    return false; // end event, localstorage is empty
+  }
+  while (i--) {
+    if (keys[i].includes('table-')) {
+      itemList.push(JSON.parse(localStorage.getItem(keys[i])));
+    }
+  }
+  return itemList.includes(`[${id}]`)
+}

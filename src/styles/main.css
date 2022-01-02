@@ -61,7 +61,7 @@ hr {
   padding: 20px;
 }
 
-.fileinfo, .textinfo {
+.fileinfo, .textinfo, .textedfit {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,19 +79,75 @@ hr {
   width: 200px;
 }
 
-.fileinfo__smallbtn, .textinfo__smallbtn {
+.fileinfo__smallbtn,
+.textinfo__smallbtn,
+.textedfit__smallbtn {
   border: 1px solid gray;
   padding: 0px 8px;
   cursor: pointer;
 }
 
-.fileinfo__smallbtn img, .textinfo__smallbtn img {
+.fileinfo__smallbtn img,
+.textinfo__smallbtn img,
+.textedfit__smallbtn img {
   width: 18px;
   height: 18px;
   vertical-align: middle;
 }
 
-.textinfo__smallbtn {
+.textinfo__smallbtn,
+.textedfit__smallbtn {
   padding: 5px 8px;
+}
+
+.textedfit__field {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 0px 15px;
+}
+
+.table {
+  border: 1px solid black;
+  width: 100%;
+  display: table;
+  overflow: scroll;
+}
+
+.table .row {
+  display: table-row;
+}
+
+.table .row .cell {
+  height: 21px;
+  width: 70px;
+  resize: both;
+  overflow: auto;
+  display: table-cell;
+  text-align: center;
+  border: 0.5px solid #b5b5b5;
+}
+
+.table .row .cell.active {
+  border: 1px solid black;
+}
+
+.table .row .cell.bold {
+  font-weight: 900;
+}
+
+.table .row .cell.italic {
+  font-style: italic;
+}
+
+.table .row .cell.align-left {
+  text-align: left;
+}
+
+.table .row .cell.align-center {
+  text-align: center;
+}
+
+.table .row .cell.align-right {
+  text-align: right;
 }
 /*# sourceMappingURL=main.css.map */
