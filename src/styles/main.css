@@ -64,6 +64,7 @@ hr {
 .table__container {
   background: #eee;
   padding: 20px;
+  overflow-y: scroll;
 }
 
 .fileinfo, .textinfo, .textedfit {
@@ -115,7 +116,6 @@ hr {
   border: 1px solid black;
   width: 100%;
   display: table;
-  overflow: scroll;
 }
 
 .table .row {
@@ -124,6 +124,7 @@ hr {
 
 .table .row .cell {
   height: 21px;
+  min-width: 70px;
   width: 70px;
   resize: both;
   overflow: auto;
