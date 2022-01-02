@@ -68,6 +68,7 @@ window.saveLine = () => {
 window.setBold = () => {
   if (!document.querySelector('.cell.active')) {
     alert('Select cell');
+    return 0;
   }
   document.querySelector('.cell.active').classList.toggle('bold');
 }
@@ -75,6 +76,7 @@ window.setBold = () => {
 window.setItalic = () => {
   if (!document.querySelector('.cell.active')) {
     alert('Select cell');
+    return 0;
   }
   document.querySelector('.cell.active').classList.toggle('italic');
 }
@@ -82,6 +84,7 @@ window.setItalic = () => {
 window.setLeftAlign = () => {
   if (!document.querySelector('.cell.active')) {
     alert('Select cell');
+    return 0;
   }
   document.querySelector('.cell.active').classList.remove('align-right');
   document.querySelector('.cell.active').classList.remove('align-center');
@@ -91,6 +94,7 @@ window.setLeftAlign = () => {
 window.setCenterAlign = () => {
   if (!document.querySelector('.cell.active')) {
     alert('Select cell');
+    return 0;
   }
   document.querySelector('.cell.active').classList.remove('align-right');
   document.querySelector('.cell.active').classList.remove('align-left');
@@ -100,6 +104,7 @@ window.setCenterAlign = () => {
 window.setRightAlign = () => {
   if (!document.querySelector('.cell.active')) {
     alert('Select cell');
+    return 0;
   }
   document.querySelector('.cell.active').classList.remove('align-center');
   document.querySelector('.cell.active').classList.remove('align-left');
@@ -130,4 +135,13 @@ window.saveTable = () => {
   saveTableToLocalStorage(tableData);
   setLastTable(tableData);
   alert('Success save table');
+}
+
+window.setColor = () => {
+  if (!document.querySelector('.cell.active')) {
+    alert('Select cell');
+    return 0;
+  }
+  const color = prompt('Enter color (en name of color or color hex)', 'black/#000000');
+  document.querySelector('.cell.active').style.backgroundColor = color;
 }
