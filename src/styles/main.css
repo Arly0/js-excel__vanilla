@@ -6,6 +6,11 @@ body {
   background-color: #eee;
 }
 
+.back-home img {
+  width: 28px;
+  height: 28px;
+}
+
 .new-table-input {
   min-height: 40px;
   border-radius: 4px;
