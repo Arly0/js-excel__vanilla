@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const tableData = getLastTable();
   if (tableData === false) {
     alert('Not set last table');
+    window.location = '/index.html';
     return;
   }
   document.querySelector('.fileinfo__name').value = tableData.name;
@@ -36,6 +37,10 @@ const division = (x, y) => {
 // set event onclick
 
 window.saveLine = () => {
+  if (!document.querySelector('.cell.active')) {
+    alert('Select cell');
+    return 0;
+  }
   let value = editLine.value;
   if (value.indexOf('=') === 0) {
     value = value.split('=')[1];
