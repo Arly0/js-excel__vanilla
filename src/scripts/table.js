@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   document.querySelector('.fileinfo__name').value = tableData.name;
 
-  generateTableLayout(tableData.data);
+  generateTableLayout(tableData);
 });
 
 const addition = (x, y) => {
@@ -125,9 +125,47 @@ window.clearTable = () => {
 
 window.saveTable = () => {
   const cells = document.getElementsByClassName('cell');
-  let index = 0, content = '';
+  let index = 0, content = '', cellStyles = {};
   for (const cell of cells) {
     content += `${cell.innerHTML},`;
+    // read all clesses and inline styles
+    if (cell.classList.length > 1) {
+      for (const tmp of cell.classList) {
+        if (tmp == 'cell' || tmp == 'active') {
+          continue;
+        } else if (tmp == 'bold' || tmp == 'italic') {
+          // weight
+          if (cellStyles[index]) {
+            let indWeight = 0;
+            for (let y=0;y<cellStyles[index].length;y++) {
+              if (cellStyles[index][y].includes('weight')) {
+                indWeight = y;
+                break; // get y as index
+              }
+            }
+            cellStyles[index][indWeight] += ` ${tmp}`;
+          } else {
+            // exist
+            if (!cellStyles[index]) {
+              cellStyles[index] = [];
+            }
+            cellStyles[index].push(`weight:${tmp}`);
+          }
+        } else if (tmp == 'align-right' || tmp == 'align-center' || tmp == 'align-left') {
+          // align
+          if (!cellStyles[index]) {
+            cellStyles[index] = [];
+          }
+          cellStyles[index].push(tmp);
+        }
+      }
+    }
+    if (cell.style.backgroundColor) {
+      if (!cellStyles[index]) {
+        cellStyles[index] = [];
+      }
+      cellStyles[index].push(`background-color:${cell.style.backgroundColor}`);
+    }
     index++;
   }
   content = content.substring(0, content.length-1);
@@ -137,6 +175,7 @@ window.saveTable = () => {
     return;
   }
   tableData.data = content;
+  tableData.cellStyles = cellStyles;
   saveTableToLocalStorage(tableData);
   setLastTable(tableData);
   alert('Success save table');

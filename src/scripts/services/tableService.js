@@ -17,12 +17,25 @@ import {
   for(let i=0;i<(tableSize*tableSize)-1;i++) {
     data += ',';
   }
+  /**
+   * cellStyles {
+   *  numberCell: [
+   *    'background-color:red',
+   *    'weight:italic, bold',
+   *    'align-center'
+   *  ]
+   * }
+   * numberCell - 0,1,2,3,...,100
+   * style - {%align, weight, background%}
+   * захвостка в том, что align, weight идут через классы, а цвет - через инлайн стиль, то есть реализовывать нужно по-разному
+   */
   return {
     // TODO: maybe add ID
     id: getLastId(),
     name: tableName,
     date: dateCreation,
-    data: data
+    data: data,
+    cellStyles: {}
   }
 }
 

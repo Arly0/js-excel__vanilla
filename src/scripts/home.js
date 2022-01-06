@@ -10,13 +10,17 @@ import {
  } from './services/tableService.js';
 
 const createTableItem = (tableData) => {
+  const firstItem = tableData.data.split(',')[0];
   const item = document.createElement("div");
   const linkToTable = document.createElement("a");
   const dateCreation = new Date(tableData.date);
   item.setAttribute("data-id", tableData.id);
   item.setAttribute("data-name", tableData.name);
   linkToTable.href = "table.html";
-  linkToTable.setAttribute("data-id", tableData.id)
+  linkToTable.setAttribute("data-id", tableData.id);
+  if (firstItem) {
+    linkToTable.setAttribute("title", firstItem);
+  }
   linkToTable.classList.add("link-to-table");
   linkToTable.innerHTML = `
       <div data-id="${tableData.id}" class="table-name">${tableData.name}</div>
